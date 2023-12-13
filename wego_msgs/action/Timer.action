@@ -1,0 +1,7 @@
+builtin_interfaces/Duration time_to_wait
+---
+builtin_interfaces/Duration time_elapsed
+uint32 updates_sent
+---
+builtin_interfaces/Duration time_elapsed
+builtin_interfaces/Duration time_remaining
