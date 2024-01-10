@@ -4,7 +4,7 @@ package_name = 'basics'
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='0.15.1',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -24,8 +24,10 @@ setup(
             'listener = basics.topic_subscriber:main',
             'service_server = basics.service_server:main',
             'service_client = basics.service_client:main',
-            'fancy_action_server = basics.action_server:main',
-            'fancy_action_client = basics.action_client:main',
+            'fancy_action_server = basics.fancy_action_server:main',
+            'fancy_action_client = basics.fancy_action_client:main',
+            'simple_action_server = basics.simple_action_server:main',
+            'simple_action_client = basics.simple_action_client:main',
         ],
     },
 )
