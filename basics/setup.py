@@ -1,5 +1,6 @@
 from setuptools import find_packages, setup
-
+from glob import glob
+import os
 package_name = 'basics'
 
 setup(
@@ -10,6 +11,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,6 +30,7 @@ setup(
             'fancy_action_client = basics.fancy_action_client:main',
             'simple_action_server = basics.simple_action_server:main',
             'simple_action_client = basics.simple_action_client:main',
+            'launch_example = basics.launch_example:main',
         ],
     },
 )
