@@ -1,12 +1,8 @@
-import sys
-
 from wego_msgs.srv import WordCount
 import rclpy
 from rclpy.node import Node
 
-
 class ServiceClient(Node):
-
     def __init__(self):
         super().__init__('service_client')
         self.cli = self.create_client(WordCount, 'word_count')
@@ -20,19 +16,18 @@ class ServiceClient(Node):
         rclpy.spin_until_future_complete(self, self.future)
         return self.future.result()
 
-
 def main():
     rclpy.init()
 
     service_client = ServiceClient()
-    words = ' '.join(sys.argv[1:])
+    print('please write some string data:')
+    words = input()
 
     response = service_client.send_request(words)
     print(words, '->', response.count)
 
     service_client.destroy_node()
     rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

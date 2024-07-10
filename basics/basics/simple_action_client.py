@@ -4,14 +4,11 @@ from rclpy.node import Node
 
 from wego_msgs.action import Timer
 
-
 class SimpleActionClient(Node):
-
     def __init__(self):
         super().__init__('simple_action_client')
         self._action_client = ActionClient(self, Timer, 'timer')
     
-
     def send_goal(self, second):
         goal_msg = Timer.Goal()
         goal_msg.time_to_wait.sec = second
@@ -29,7 +26,6 @@ class SimpleActionClient(Node):
             return
 
         self.get_logger().info('Goal accepted :)')
-        self.goal_handle_ = goal_handle
 
         self._get_result_future = goal_handle.get_result_async()
         self._get_result_future.add_done_callback(self.get_result_callback)
@@ -43,8 +39,6 @@ class SimpleActionClient(Node):
         self.feedback = feedback_msg.feedback
         print('time elapsed: ', self.feedback.time_elapsed.sec, '\ntime_remaining: ', self.feedback.time_remaining.sec)
        
-
-
 def main(args=None):
     rclpy.init(args=args)
 
@@ -53,7 +47,6 @@ def main(args=None):
     simple_action_client.send_goal(40)
 
     rclpy.spin(simple_action_client)
-
 
 if __name__ == '__main__':
     main()

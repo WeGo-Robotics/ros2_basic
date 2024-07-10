@@ -5,18 +5,23 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='basics',
-            executable='launch_example',
-            name='launch_example',
-            namespace='wego',
-            output='screen',
+            executable='parameter_example',
+            name='change_parameter',
             parameters=[
-                {'topic_name': 'some_topic'}
+                {'message_content': 'changed contents'}
             ]
         ),
         Node(
             package='basics',
-            executable='talker',
-            name='talker',
-            output='screen'
-        )
+            executable='parameter_example',
+            name='remap_topic',
+            remappings=[
+                ('example_topic', 'another_topic'),
+            ]
+        ),
+        Node(
+            package='basics',
+            executable='parameter_example',
+            namespace='wego',
+        ),
     ])
