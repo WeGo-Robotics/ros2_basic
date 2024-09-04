@@ -8,7 +8,6 @@ from rclpy.node import Node
 from wego_msgs.action import Timer
 
 class SimpleActionServer(Node):
-
     def __init__(self):
         super().__init__('simple_action_server')
         self._action_server = ActionServer(

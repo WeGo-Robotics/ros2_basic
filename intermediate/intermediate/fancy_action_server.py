@@ -9,7 +9,6 @@ from rclpy.node import Node
 from wego_msgs.action import Timer
 
 class FancyActionServer(Node):
-
     def __init__(self):
         super().__init__('fancy_action_server')
         self._action_server = ActionServer(
@@ -36,8 +35,7 @@ class FancyActionServer(Node):
         self.get_logger().info('Received cancel request')
         return CancelResponse.ACCEPT
 
-
-    async def execute_callback(self, goal_handle):
+    def execute_callback(self, goal_handle):
         start_time = time.time()
         update_count = 0
         
@@ -69,8 +67,6 @@ class FancyActionServer(Node):
         goal_handle.succeed()
         return result
 
-
-
 def main(args=None):
     rclpy.init(args=args)
 
@@ -82,7 +78,6 @@ def main(args=None):
 
     fancy_action_server.destroy()
     rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

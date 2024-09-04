@@ -2,10 +2,9 @@ import rclpy
 from rclpy.node import Node
 
 from std_msgs.msg import Int32
-
+# from wego_msgs.msg import Counter
 
 class TopicSubscriber(Node):
-
     def __init__(self):
         super().__init__('topic_subscriber')
         self.subscription = self.create_subscription(
@@ -13,11 +12,18 @@ class TopicSubscriber(Node):
             'counter',
             self.listener_callback,
             10)
+        
+        # self.subscription = self.create_subscription(
+        #     Counter,
+        #     'counter',
+        #     self.listener_callback,
+        #     10)
+
         self.subscription  # prevent unused variable warning
 
     def listener_callback(self, msg):
         print(msg.data)
-
+        # print(msg.count)
 
 def main(args=None):
     rclpy.init(args=args)
@@ -26,12 +32,8 @@ def main(args=None):
 
     rclpy.spin(topic_subscriber)
 
-    # Destroy the node explicitly
-    # (optional - otherwise it will be done automatically
-    # when the garbage collector destroys the node object)
     topic_subscriber.destroy_node()
     rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

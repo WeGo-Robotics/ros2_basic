@@ -27,8 +27,6 @@ setup(
             'listener = basics.topic_subscriber:main',
             'service_server = basics.service_server:main',
             'service_client = basics.service_client:main',
-            'fancy_action_server = basics.fancy_action_server:main',
-            'fancy_action_client = basics.fancy_action_client:main',
             'simple_action_server = basics.simple_action_server:main',
             'simple_action_client = basics.simple_action_client:main',
             'parameter_example = basics.parameter_example:main',
