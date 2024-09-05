@@ -1,0 +1,14 @@
+<library path="calculator_plugins">
+    <class type="calculator_plugins::Add" base_class_type="calculator_base::RegularCalculator">
+      <description>This is a add plugins.</description>
+    </class>
+    <class type="calculator_plugins::Mul" base_class_type="calculator_base::RegularCalculator">
+        <description>This is a mul plugins.</description>
+    </class>
+    <class type="calculator_plugins::Sub" base_class_type="calculator_base::RegularCalculator">
+        <description>This is a sub plugins.</description>
+    </class>
+    <class type="calculator_plugins::Div" base_class_type="calculator_base::RegularCalculator">
+      <description>This is a div plugins.</description>
+    </class>
+  </library>
